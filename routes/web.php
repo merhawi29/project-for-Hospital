@@ -24,3 +24,12 @@ Route::post('/upload_doctor', [adminController::class, 'upload']);
 Route::post('/appointment', [HomeController::class, 'appointment']);
 Route::get('/myappointment', [HomeController::class, 'myappointment']);
 Route::get('/cancle/{id}', [HomeController::class, 'cancle']);
+Route::get('/showappointment', [adminController::class, 'showappointment'])->middleware(['auth']);
+Route::get('/Approved/{id}', [adminController::class, 'Approved']);
+Route::get('/cancle/{id}', [adminController::class, 'cancle']);
+Route::get('/Alldoctor', [adminController::class, 'Alldoctor'])->middleware(['auth']);
+Route::get('/Deletedoctor/{id}', [adminController::class, 'Deletedoctor']);
+Route::get('/Updatedoctor/{id}', [adminController::class, 'Updatedoctor']);
+Route::post('/edit_doctor/{id}', [adminController::class, 'edit_doctor']);
+
+
