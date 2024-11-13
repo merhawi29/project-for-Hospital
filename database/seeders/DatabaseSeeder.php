@@ -19,5 +19,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+        Appointment::factory()->create([
+            'name' =>  fake()->name()
+            ,'email' => fake()->unique()->safeEmail()
+            ,'phone' => fake()->phoneNumber()
+            ,'doctor' => fake()->name()
+            ,'message'=> fake()->paragraph()
+            ,'user_id'=>\App\Models\User::factory()
+        ]);
     }
+
 }

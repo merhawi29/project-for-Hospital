@@ -42,6 +42,15 @@ class HomeController extends Controller
     }
     public function appointment(Request $request)
     {
+        $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'date' => 'required',
+                'doctor' => 'required',
+                'phone' => 'required',
+                'message' => 'required',
+            ]);
+
         $data = new appointment;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -60,7 +69,7 @@ class HomeController extends Controller
      public function dash() {
         if(Auth::id())
             {
-                // $doctor = doctor::all();
+               
                 if(Auth::user()->usertype=="0")
                 {
                     $doctor = doctor::all();

@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 Route::get('/add_view_doctor', [adminController::class, 'addview'])->middleware(['auth']);
 Route::post('/upload_doctor', [adminController::class, 'upload']);
-Route::post('/appointment', [HomeController::class, 'appointment']);
+Route::post('/appointment', [HomeController::class, 'appointment'])->middleware(['auth']);
 Route::get('/myappointment', [HomeController::class, 'myappointment']);
 Route::get('/cancle/{id}', [HomeController::class, 'cancle']);
 Route::get('/showappointment', [adminController::class, 'showappointment'])->middleware(['auth']);
